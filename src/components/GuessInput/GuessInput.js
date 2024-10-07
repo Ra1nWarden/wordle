@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput() {
+function GuessInput({guesses, setGuesses}) {
   const [input, setInput] = React.useState('');
   const changeInput = (event) => setInput(event.target.value.toUpperCase());
   const submitInput = (event) => {
@@ -9,6 +9,7 @@ function GuessInput() {
       return;
     }
     console.log(input);
+    setGuesses([...guesses, input]);
     setInput('');
   };
   return (
